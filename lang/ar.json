@@ -4,8 +4,7 @@
     "Client Name":"اسم العميل",
     "Client Phone":"هاتف العميل",
     "Client Email":"ايميل العميل",
-    "Totla":"الاجمالي",
-    "settings":"الاعدادات",
+    "Total":"الاجمالي",
     "Settings":"الاعدادات",
-    "filament/resources/setting.navigation_label":"الاعدادات"
+    "Invoices":"الفواتير"
 }

@@ -17,9 +17,9 @@ class InvoiceResource extends Resource
 {
     protected static ?string $model = Invoice::class;
     protected static ?string $navigationIcon = 'heroicon-o-collection';
-    public static function getNavigationLabel(): string
+    public static function getPluralLabel(): string
     {
-        return __('filament/resources/customer.navigation_label');
+        return __('Invoices');
     }
 
     public static function form(Form $form): Form

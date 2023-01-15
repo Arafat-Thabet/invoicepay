@@ -16,8 +16,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class SettingResource extends Resource
 {
     protected static ?string $model = Setting::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    public static function getPluralLabel(): string
+    {
+        return __('Settings');
+    }
 
     public static function form(Form $form): Form
     {
