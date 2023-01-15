@@ -23,8 +23,8 @@ class SettingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('value')->required(),
+                Forms\Components\TextInput::make('name')->required()->label(__('Name')),
+                Forms\Components\TextInput::make('value')->required()->label(__('Value')),
             ]);
     }
 
@@ -32,8 +32,8 @@ class SettingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('value'),
+                Tables\Columns\TextColumn::make('name')->label(__('Name')),
+                Tables\Columns\TextColumn::make('value')->label(__('Value')),
             ])
             ->filters([
                 //
