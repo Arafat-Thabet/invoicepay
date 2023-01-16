@@ -21,6 +21,10 @@ class SettingResource extends Resource
     {
         return __('Settings');
     }
+    public static function getLabel(): ?string
+    {
+        return __('Setting');
+    }
 
     public static function form(Form $form): Form
     {

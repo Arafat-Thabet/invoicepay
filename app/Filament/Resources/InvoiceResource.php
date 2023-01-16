@@ -21,6 +21,10 @@ class InvoiceResource extends Resource
     {
         return __('Invoices');
     }
+    public static function getLabel(): ?string
+    {
+        return __('Invoice');
+    }
 
     public static function form(Form $form): Form
     {
