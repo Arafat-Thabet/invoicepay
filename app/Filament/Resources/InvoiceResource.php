@@ -44,10 +44,20 @@ class InvoiceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('clientname')->label(__('Client Name')),
-                Tables\Columns\TextColumn::make('clientphone')->getStateUsing(fn ($record) => str_replace('+','00',$record->clientphone) )->label(__('Client Phone')),
+                Tables\Columns\TextColumn::make('clientname')
+                ->searchable()
+                ->sortable()
+                ->label(__('Client Name')),
+                Tables\Columns\TextColumn::make('clientphone')
+                ->getStateUsing(fn ($record) => str_replace('+','00',$record->clientphone) )
+                ->searchable()
+                ->sortable()
+                ->label(__('Client Phone')),
                 // Tables\Columns\TextColumn::make('clientemail')->label(__('Client Email')),
-                Tables\Columns\TextColumn::make('total')->label(__('Total')),
+                Tables\Columns\TextColumn::make('total')
+                ->searchable()
+                ->sortable()
+                ->label(__('Total')),
             ])
             ->filters([
                 //

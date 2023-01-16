@@ -20,4 +20,4 @@ Route::get('/', function () {
 
 Route::get('/pay_invoice', function () {
     return view('payment');
-});
+})->name('pay_invoice');

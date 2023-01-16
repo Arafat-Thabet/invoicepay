@@ -13,8 +13,8 @@
         <!-- Download CSS and JS files in case you want to test it locally, but use CDN in production -->
     </head>
 <body>
-    <div>
-        <div class="mysr-form"></div>
+    <div style="height: 100vh">
+        <div class="mysr-form" style="margin: 10%"></div>
     </div>
     <script>
         Moyasar.init({
@@ -25,11 +25,17 @@
             // 10 KWD = 10 * 1000 Fils
             // 10 JPY = 10 JPY (Japanese Yen does not have fractions)
             amount: <?= $_GET['total'] ?>,
-            currency: 'SAR',
+            currency: "<?= getSetting('currency') ?>",
             description: 'Coffee Order #1',
             publishable_api_key: 'pk_test_AQpxBV31a29qhkhUYFYUFjhwllaDVrxSq5ydVNui',
             callback_url: 'https://moyasar.com/thanks',
-            methods: ['creditcard'],
+            // methods: ['creditcard'],
+            language: 'ar',
+            apple_pay: {
+            country: 'SA',
+            label: 'Awesome Cookie Store',
+            validate_merchant_url: 'https://api.moyasar.com/v1/applepay/initiate',
+        },
         });
     </script>
 </body>

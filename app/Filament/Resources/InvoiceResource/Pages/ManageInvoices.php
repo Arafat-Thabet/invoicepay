@@ -19,27 +19,29 @@ class ManageInvoices extends ManageRecords
         return [
             Actions\CreateAction::make()
 
-            // ->before(function (CreateAction $action) {
-                // dd(77777, $this);
-                // if (! $this->record->team->subscribed()) {
-            //         Notification::make()
-            //             ->warning()
-            //             ->title('You don\'t have an active subscription!')
-            //             ->body('Choose a plan to continue.')
-            //             ->persistent()
-            //             // ->actions([
-            //             //     Action::make('subscribe')
-            //             //         ->button()
-            //                     // ->url(route('subscribe'), shouldOpenInNewTab: true),
-            //             // ])
-            //             ->send();
-
-            //             $action->cancel();
-            //             dd(4444);
-            //         // $action->halt();
-            //     // }
-            // })
-            ->label(__('Send Invoice')),
+                ->before(function (CreateAction $action) {
+                    $message = __('Please, pay yuor invoice on this link: ') . url('/pay_invoice?total='.$this->mountedActionData["total"]);
+                    $sms = send_sms($this->mountedActionData["clientphone"], $message);
+                    if (send_email('hamzawemughales@gmail.com', $message, 'Payment')) {
+                        Notification::make()
+                                ->success()
+                                ->title(__('Successfully'))
+                                ->body(__('Incoive has been sent successfully.'))
+                                ->persistent()
+                                ->send();
+                    } else {
+                        if (!$this->record->team->subscribed()) {
+                            Notification::make()
+                                ->warning()
+                                ->title('Faild!')
+                                ->body('Sorry, Faild to send, try again later!')
+                                ->persistent()
+                                ->send();
+                            $action->cancel();
+                        }
+                    }
+                })
+                ->label(__('Send Invoice')),
         ];
     }
 }

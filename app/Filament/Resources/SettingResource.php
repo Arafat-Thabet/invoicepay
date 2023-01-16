@@ -39,8 +39,14 @@ class SettingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->label(__('Name')),
-                Tables\Columns\TextColumn::make('value')->label(__('Value')),
+                Tables\Columns\TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->label(__('Name')),
+                Tables\Columns\TextColumn::make('value')
+                ->searchable()
+                ->sortable()
+                ->label(__('Value')),
             ])
             ->filters([
                 //

@@ -9,5 +9,9 @@
     "Invoice":"فاتورة",
     "Setting":"اعداد",
     "Send Invoice":"ارسال فاتورة",
+    "Successfully":"نجاح الارسال",
+    "Incoive has been sent successfully":"تم ارسال الفاتورة بنجاح",
+    "Faild":"فشل الارسال",
+    "Sorry, Faild to send, try again later!":"الرجاء المحاولة لاحقا",
     "Invoices":"الفواتير"
 }
