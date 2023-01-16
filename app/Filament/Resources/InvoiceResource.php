@@ -32,7 +32,7 @@ class InvoiceResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('clientname')->label(__('Client Name')),
                 Forms\Components\TextInput::make('clientphone')->label(__('Client Phone'))->required(),
-                Forms\Components\TextInput::make('clientemail')->label(__('Client Email')),
+                // Forms\Components\TextInput::make('clientemail')->label(__('Client Email')),
                 Forms\Components\TextInput::make('total')->required()->label(__('Total')),
             ]);
     }
@@ -43,7 +43,7 @@ class InvoiceResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('clientname')->label(__('Client Name')),
                 Tables\Columns\TextColumn::make('clientphone')->label(__('Client Phone')),
-                Tables\Columns\TextColumn::make('clientemail')->label(__('Client Email')),
+                // Tables\Columns\TextColumn::make('clientemail')->label(__('Client Email')),
                 Tables\Columns\TextColumn::make('total')->label(__('Total')),
             ])
             ->filters([

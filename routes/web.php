@@ -17,3 +17,7 @@ Route::get('/', function () {
     return redirect('/admin/login');
     // return view('welcome');
 });
+
+Route::get('/pay_invoice', function () {
+    return view('payment');
+});
