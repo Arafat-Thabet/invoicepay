@@ -19,26 +19,26 @@ class ManageInvoices extends ManageRecords
         return [
             Actions\CreateAction::make()
 
-            ->before(function (CreateAction $action) {
+            // ->before(function (CreateAction $action) {
                 // dd(77777, $this);
                 // if (! $this->record->team->subscribed()) {
-                    Notification::make()
-                        ->warning()
-                        ->title('You don\'t have an active subscription!')
-                        ->body('Choose a plan to continue.')
-                        ->persistent()
-                        // ->actions([
-                        //     Action::make('subscribe')
-                        //         ->button()
-                                // ->url(route('subscribe'), shouldOpenInNewTab: true),
-                        // ])
-                        ->send();
+            //         Notification::make()
+            //             ->warning()
+            //             ->title('You don\'t have an active subscription!')
+            //             ->body('Choose a plan to continue.')
+            //             ->persistent()
+            //             // ->actions([
+            //             //     Action::make('subscribe')
+            //             //         ->button()
+            //                     // ->url(route('subscribe'), shouldOpenInNewTab: true),
+            //             // ])
+            //             ->send();
 
-                        $action->cancel();
-                        dd(4444);
-                    // $action->halt();
-                // }
-            })
+            //             $action->cancel();
+            //             dd(4444);
+            //         // $action->halt();
+            //     // }
+            // })
             ->label(__('Send Invoice')),
         ];
     }

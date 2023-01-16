@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('clientname')->nullable();
             $table->string('clientphone');
             $table->string('clientemail')->email()->nullable();
-            $table->string('total');
+            $table->double('total', 12, 2);
             $table->timestamps();
         });
     }

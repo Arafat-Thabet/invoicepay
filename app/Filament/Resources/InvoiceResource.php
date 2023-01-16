@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\TextInput;
 
 class InvoiceResource extends Resource
 {
@@ -33,7 +34,8 @@ class InvoiceResource extends Resource
                 Forms\Components\TextInput::make('clientname')->label(__('Client Name')),
                 Forms\Components\TextInput::make('clientphone')->label(__('Client Phone'))->required(),
                 // Forms\Components\TextInput::make('clientemail')->label(__('Client Email')),
-                Forms\Components\TextInput::make('total')->required()->label(__('Total')),
+                Forms\Components\TextInput::make('total')->required()->label(__('Total'))
+                ->mask(fn (TextInput\Mask $mask) => $mask->numeric()->decimalPlaces(2)->thousandsSeparator(','),)
             ]);
     }
 
