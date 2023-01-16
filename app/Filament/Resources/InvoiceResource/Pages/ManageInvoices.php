@@ -38,7 +38,8 @@ class ManageInvoices extends ManageRecords
                         dd(4444);
                     // $action->halt();
                 // }
-            }),
+            })
+            ->label(__('Send Invoice')),
         ];
     }
 }
