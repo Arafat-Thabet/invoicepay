@@ -13,6 +13,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
+use Ysfkaya\FilamentPhoneInput\PhoneInput;
 
 class InvoiceResource extends Resource
 {
@@ -32,7 +33,7 @@ class InvoiceResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('clientname')->label(__('Client Name')),
-                Forms\Components\TextInput::make('clientphone')->label(__('Client Phone'))->required(),
+                PhoneInput::make('clientphone')->initialCountry('sa')->label(__('Client Phone'))->required(),
                 // Forms\Components\TextInput::make('clientemail')->label(__('Client Email')),
                 Forms\Components\TextInput::make('total')->required()->label(__('Total'))
                 ->mask(fn (TextInput\Mask $mask) => $mask->numeric()->decimalPlaces(2)->thousandsSeparator(','),)
@@ -44,7 +45,7 @@ class InvoiceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('clientname')->label(__('Client Name')),
-                Tables\Columns\TextColumn::make('clientphone')->label(__('Client Phone')),
+                Tables\Columns\TextColumn::make('clientphone')->getStateUsing(fn ($record) => str_replace('+','00',$record->clientphone) )->label(__('Client Phone')),
                 // Tables\Columns\TextColumn::make('clientemail')->label(__('Client Email')),
                 Tables\Columns\TextColumn::make('total')->label(__('Total')),
             ])
