@@ -9,5 +9,7 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','value'];
+    public $fillable = ['key', 'display_name', 'type', 'group', 'value'];
+
+    public $timestamps = false;
 }

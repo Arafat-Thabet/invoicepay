@@ -110,6 +110,6 @@ if (!function_exists('send_sms')) {
  */
 if (!function_exists('getSetting')) {
     function getSetting($key) {
-        return App\Models\Setting::select('value')->where('name',$key)->first()->value ?? null;
+        return App\Models\Setting::where('key', $key)->first()->value ?? null;
     }
 }
