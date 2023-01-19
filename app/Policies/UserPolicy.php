@@ -2,11 +2,10 @@
 
 namespace App\Policies;
 
-use App\Models\Invoice;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class InvoicePolicy
+class UserPolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +17,19 @@ class InvoicePolicy
      */
     public function viewAny(User $user)
     {
-        return  $user->hasRole(['Supper Admin','Admin','Cashier']);
+        return  $user->hasRole(['Supper Admin','Admin']);
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Invoice $invoice)
+    public function view(User $user, User $model)
     {
-        //
+        return  $user->hasRole(['Supper Admin','Admin']);
     }
 
     /**
@@ -41,17 +40,17 @@ class InvoicePolicy
      */
     public function create(User $user)
     {
-        return  $user->hasRole(['Supper Admin','Admin','Cashier']);
+        return  $user->hasRole(['Supper Admin','Admin']);
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Invoice $invoice)
+    public function update(User $user, User $model)
     {
         return  $user->hasRole(['Supper Admin','Admin']);
     }
@@ -60,35 +59,12 @@ class InvoicePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Invoice $invoice)
+    public function delete(User $user, User $model)
     {
         return  $user->hasRole(['Supper Admin','Admin']);
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Invoice  $invoice
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function restore(User $user, Invoice $invoice)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Invoice  $invoice
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function forceDelete(User $user, Invoice $invoice)
-    {
-        //
-    }
 }
