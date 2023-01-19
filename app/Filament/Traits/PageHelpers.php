@@ -86,7 +86,7 @@ trait PageHelpers
      */
     protected static function getNavigationGroup(): ?string
     {
-        return  __('Settings');
+        return __(config('filament-dynamic-settings-page.navigation.group'));
     }
 
     /**
@@ -110,7 +110,7 @@ trait PageHelpers
      */
     protected static function getNavigationLabel(): string
     {
-        return __('Settings');
+        return __(config('filament-dynamic-settings-page.navigation.label'));
     }
 
     /**
@@ -118,7 +118,7 @@ trait PageHelpers
      */
     protected function getTitle(): string
     {
-        return __('Settings');
+        return __(config('filament-dynamic-settings-page.title'));
     }
 
     /**
@@ -126,6 +126,6 @@ trait PageHelpers
      */
     protected function getBreadcrumbs(): array
     {
-        return __('Settings');
+        return config('filament-dynamic-settings-page.breadcrumbs');
     }
 }
