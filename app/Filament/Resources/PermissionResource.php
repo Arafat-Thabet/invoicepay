@@ -18,6 +18,11 @@ class PermissionResource extends Resource
     protected static ?string $model = Permission::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static function getNavigationGroup(): ?string
+    {
+        return __('Settings');
+    }
+
     public static function getPluralLabel(): string
     {
         return __('Permissions');
@@ -26,7 +31,7 @@ class PermissionResource extends Resource
     {
         return __('Permission');
     }
-    
+
     public static function form(Form $form): Form
     {
         return $form

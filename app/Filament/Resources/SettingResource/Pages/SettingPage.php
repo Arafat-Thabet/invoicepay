@@ -8,5 +8,9 @@ use Filament\Resources\Pages\ManageRecords;
 
 class SettingPage extends ManageRecords
 {
-    protected static string $resource = SettingResource::class;
+    // protected static string $resource = SettingResource::class;
+    public function getPluralModelLabel(): string
+    {
+        return __('Settings');
+    }
 }

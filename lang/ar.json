@@ -6,7 +6,6 @@
     "Client Email":"ايميل العميل",
     "Total":"الاجمالي",
     "Settings":"الاعدادات",
-    "Invoice":"فاتورة",
     "Setting":"اعداد",
     "Logo":"الشعار",
     "Add":"اضافة",
@@ -24,5 +23,12 @@
     "Incoive has been sent successfully":"تم ارسال الفاتورة بنجاح",
     "Faild":"فشل الارسال",
     "Sorry, Faild to send, try again later!":"الرجاء المحاولة لاحقا",
-    "Invoices":"الفواتير"
+    "Invoices":"الفواتير",
+    "Invoice":"فاتورة",
+    "Permissions":"الصلاحية",
+    "Permission":"صلاحية",
+    "Roles":"الأدوار",
+    "Role":"دور",
+    "Users":"المستخدمين",
+    "User":"مستخدم"
 }

@@ -17,8 +17,19 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static function getNavigationGroup(): ?string
+    {
+        return __('Settings');
+    }
+    public static function getPluralLabel(): string
+    {
+        return __('Roles');
+    }
+    public static function getLabel(): ?string
+    {
+        return __('Role');
+    }
 
     public static function form(Form $form): Form
     {
