@@ -22,10 +22,6 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
     protected static ?string $navigationIcon = 'heroicon-o-collection';
-    protected static function getNavigationGroup(): ?string
-    {
-        return __('Settings');
-    }
     public static function getPluralLabel(): string
     {
         return __('Users');
@@ -33,6 +29,10 @@ class UserResource extends Resource
     public static function getLabel(): ?string
     {
         return __('User');
+    }
+    public static function getEloquentQuery(): Builder
+    {
+        return static::getModel()::query()->where('id', '!=', 1);
     }
 
     public static function form(Form $form): Form
@@ -46,13 +46,14 @@ class UserResource extends Resource
                     ->label(__('Password')),
                 Forms\Components\Select::make('role')
                     ->label(__('Roles'))
-                    ->options(Role::pluck('name', 'name'))
+                    ->options(Role::where('id', "!=", 1)->pluck('name', 'name'))
                     ->searchable(),
             ]);
     }
 
     public static function table(Table $table): Table
     {
+        // dd(env('APP_ENV'));
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label(__('Name')),
