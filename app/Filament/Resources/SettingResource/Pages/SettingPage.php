@@ -13,4 +13,8 @@ class SettingPage extends ManageRecords
     {
         return __('Settings');
     }
+    public static function getLabel(): ?string
+    {
+        return __('Settings');
+    }
 }

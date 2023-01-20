@@ -22,7 +22,7 @@ class ManageInvoices extends ManageRecords
                 ->before(function (CreateAction $action) {
                     $message = __('Please, pay yuor invoice on this link: ') . url('/pay_invoice?total='.$this->mountedActionData["total"]);
                     $sms = send_sms($this->mountedActionData["clientphone"], $message);
-                    if (send_email('hamzawemughales@gmail.com', $message, 'Payment')) {
+                    if (send_email(getSetting('company_email'), $message, 'Payment')) {
                         Notification::make()
                                 ->success()
                                 ->title(__('Successfully'))

@@ -12,7 +12,7 @@
 
         <!-- Download CSS and JS files in case you want to test it locally, but use CDN in production -->
     </head>
-<body>
+<body style="direction: rtl;">
     <div style="height: 100vh">
         <div class="mysr-form" style="margin: 10%"></div>
     </div>
