@@ -47,6 +47,7 @@ class UserResource extends Resource
                 Forms\Components\Select::make('role')
                     ->label(__('Roles'))
                     ->options(Role::where('id', "!=", 1)->pluck('name', 'name'))
+                    ->hidden(fn($record)=> ($record && $record->id == 2) ? true : false)
                     ->searchable(),
             ]);
     }
@@ -77,7 +78,8 @@ class UserResource extends Resource
                         $record->syncRoles($data['role']);
 
                         return $record;
-                    })
+                    }),
+                Tables\Actions\DeleteAction::make()->hidden(fn($record)=>$record->id == 2),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

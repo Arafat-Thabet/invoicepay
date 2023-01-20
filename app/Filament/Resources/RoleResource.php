@@ -40,11 +40,11 @@ class RoleResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
-                // Forms\Components\Select::make('permissions')
-                // ->multiple()
-                // ->label(__('Permissions'))
-                // ->options(Permission::pluck('name','name'))
-                // ->searchable(),
+                Forms\Components\Select::make('permissions')
+                ->multiple()
+                ->label(__('Permissions'))
+                ->options(Permission::pluck('name','name'))
+                ->searchable(),
             ]);
     }
 
@@ -59,10 +59,10 @@ class RoleResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                // Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                // Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
