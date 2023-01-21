@@ -67,7 +67,8 @@ class InvoicePolicy
     {
         return  $user->hasRole(['Supper Admin','Admin']);
     }
-
+  
+    
     /**
      * Determine whether the user can restore the model.
      *

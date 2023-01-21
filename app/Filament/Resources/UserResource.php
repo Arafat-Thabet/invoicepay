@@ -57,8 +57,9 @@ class UserResource extends Resource
         // dd(env('APP_ENV'));
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->label(__('Name')),
-                Tables\Columns\TextColumn::make('email')->label(__('Email')),
+                Tables\Columns\TextColumn::make('name')->label(__('Name'))->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('email')->label(__('Email'))->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('role')->label(__('Roles')),
             ])
             ->filters([
                 //

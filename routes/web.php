@@ -19,5 +19,16 @@ Route::get('/', function () {
 });
 
 Route::get('/pay_invoice', function () {
+    if($_GET['total']>0){
     return view('payment');
+    }
+    else{
+        return view('payerror');
+    }
 })->name('pay_invoice');
+Route::get('/paysuccess', function () {
+    return view('paysuccess');
+})->name('paysuccess');
+Route::get('/payerror', function () {
+    return view('payerror');
+})->name('payerror');

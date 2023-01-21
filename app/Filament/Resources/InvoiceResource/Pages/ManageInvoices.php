@@ -20,9 +20,11 @@ class ManageInvoices extends ManageRecords
             Actions\CreateAction::make()
 
                 ->before(function (CreateAction $action) {
-                    $message = __('Please, pay your invoice on this link: ') . url('/pay_invoice?total='.$this->mountedActionData["total"]);
+                   $total= $this->mountedActionData["total"];
+                   $invoice_no= $this->mountedActionData["invoice_no"];
+                    $message = __('Please, pay your invoice on this link: ') . url('/pay_invoice?total='.$total.'&invoice_no='. $invoice_no);
                     $sms = send_sms($this->mountedActionData["clientphone"], $message);
-                    if (send_email(getSetting('company_email'), $message, 'Payment')) {
+                    if (true or send_email(getSetting('company_email'), $message, 'Payment')) {
                         Notification::make()
                                 ->success()
                                 ->title(__('Successfully'))

@@ -21,7 +21,7 @@
     "Site setings":"اعدادات الشركة",
     "Send Invoice":"ارسال فاتورة",
     "Successfully":"نجاح الارسال",
-    "Incoive has been sent successfully":"تم ارسال الفاتورة بنجاح",
+    "Incoive has been sent successfully.":"تم ارسال الفاتورة بنجاح",
     "Faild":"فشل الارسال",
     "Sorry, Faild to send, try again later!":"الرجاء المحاولة لاحقا",
     "Invoices":"الفواتير",
@@ -33,5 +33,11 @@
     "Users":"المستخدمين",
     "User":"مستخدم",
     "Email Company":"البريد الالكتروني للشركة",
-    "Please, pay your invoice on this link: ":"الرجاء دفع الفاتورة من خلال الرابط الحالي: "
+    "Please, pay your invoice on this link: ":"الرجاء دفع الفاتورة من خلال الرابط الحالي: ",
+    "Success":"نجاح",
+    "Invoice No":"رقم الفاتورة",
+    "Invoice Title":"عنوان الفاتورة",
+    "Payment":"الدفع",
+    "Edit":"تعديل",
+    "Delete":"حذف"
 }

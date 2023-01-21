@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use Livewire\WithFileUploads;
 use App\Filament\Traits\PageHelpers;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Gate;
@@ -14,6 +15,7 @@ class SettingPage extends Page
 {
     use WithFileUploads, PageHelpers, AuthorizesRequests;
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationLabel = '';
 
     // protected static string $view = 'filament.pages.setting-page';
 
@@ -39,17 +41,13 @@ class SettingPage extends Page
 
     protected static function shouldRegisterNavigation(): bool
     {
-        if (config('filament-dynamic-settings-page.permission.enable')) {
-            return Gate::any(config('filament-dynamic-settings-page.permission.name'));
-        }
-        return true;
+
+        return auth()->user()->canManageSettings();
     }
 
     public function mount()
     {
-        if (config('filament-dynamic-settings-page.permission.enable')) {
-            $this->authorize(config('filament-dynamic-settings-page.permission.name'), Setting::class);
-        }
+     
 
         $this->loadData();
     }
@@ -152,5 +150,4 @@ class SettingPage extends Page
         $this->loadData();
         $this->sendNotification($this->sortNotificationMessage());
     }
-
 }
